@@ -6,7 +6,7 @@
   "tos_uri": "https://rolulo.kazani.dev/tos",
   "policy_uri": "https://rolulo.kazani.dev/policy",
   "redirect_uris": [
-    "https://rolulo.kazani.dev/callback"
+    "https://rolulo.kazani.dev/"
   ],
   "scope": "atproto",
   "grant_types": [
