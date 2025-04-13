@@ -12,6 +12,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Rulolo Login</title>
+</svelte:head>
+
 <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
 	<Card type="filled" on:click={() => console.log('wawa')}>
 		<div style="display: flex; gap: 12px; flex-direction: column; max-width: 80ch;">

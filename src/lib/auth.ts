@@ -1,5 +1,5 @@
 import {goto} from '$app/navigation';
-import {AtprotoDohHandleResolver, BrowserOAuthClient, OAuthSession, TokenInvalidError, TokenRefreshError, TokenRevokedError} from '@atproto/oauth-client-browser';
+import {AtprotoDohHandleResolver, BrowserOAuthClient, OAuthSession} from '@atproto/oauth-client-browser';
 
 export const client = await BrowserOAuthClient.load({
   clientId: 'https://rolulo.pages.dev/atproto-metadata.json',
