@@ -1,6 +1,7 @@
 <script lang="ts">
 	let handle_internal: string | undefined;
 	let entry: HTMLInputElement;
+	export let onSubmit: (() => Promise<void>) | undefined;
 
 	function isBskySocial(): boolean {
 		if (handle_internal === undefined) {
@@ -26,7 +27,18 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="handle-entry" on:click={() => entry.focus()}>
-	<input type="text" bind:value={handle_internal} bind:this={entry} />
+	<input
+		type="text"
+		bind:value={handle_internal}
+		bind:this={entry}
+		on:keypress={async (event) => {
+			if (event.key === 'Enter') {
+				if (onSubmit !== undefined) {
+					await onSubmit();
+				}
+			}
+		}}
+	/>
 
 	{#if isBskySocial()}
 		<span>.bsky.social</span>

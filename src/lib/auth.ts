@@ -1,3 +1,4 @@
+import {dev} from '$app/environment';
 import {goto} from '$app/navigation';
 import {AtprotoDohHandleResolver, BrowserOAuthClient, OAuthSession} from '@atproto/oauth-client-browser';
 
@@ -5,11 +6,19 @@ export let session: OAuthSession|undefined;
 let client: BrowserOAuthClient;
 
 (async () => {
-  client = await BrowserOAuthClient.load({
-    clientId: 'https://rolulo.pages.dev/atproto-metadata.json',
-    handleResolver: new AtprotoDohHandleResolver(
-        {dohEndpoint: 'https://cloudflare-dns.com/dns-query'})
-  });
+  if (dev) {
+    client = new BrowserOAuthClient({
+      clientMetadata: undefined,
+      handleResolver: new AtprotoDohHandleResolver(
+          {dohEndpoint: 'https://cloudflare-dns.com/dns-query'})
+    });
+  } else {
+    client = await BrowserOAuthClient.load({
+      clientId: 'https://rolulo.pages.dev/atproto-metadata.json',
+      handleResolver: new AtprotoDohHandleResolver(
+          {dohEndpoint: 'https://cloudflare-dns.com/dns-query'})
+    });
+  }
 
   client.addEventListener(
       'deleted',
@@ -32,7 +41,6 @@ let client: BrowserOAuthClient;
 export async function login(handle: string) {
   try {
     await client.signIn(handle, {
-      prompt: 'none',
       signal: new AbortController().signal,
     });
   } catch (err) {
