@@ -36,6 +36,7 @@ export async function login(handle: string) {
       signal: new AbortController().signal,
     });
   } catch (err) {
+    console.error(err);
     console.log(
         'The user aborted the authorization process by navigating "back"');
   }

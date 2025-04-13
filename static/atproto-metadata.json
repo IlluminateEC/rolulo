@@ -1,12 +1,12 @@
 {
-  "client_id": "https://rolulo.pages.dev/atproto-metadata.json",
+  "client_id": "https://rolulo.kazani.dev/atproto-metadata.json",
   "client_name": "Rolulo",
-  "client_uri": "https://rolulo.pages.dev",
-  "logo_uri": "https://rolulo.pages.dev/favicon.png",
-  "tos_uri": "https://rulolo.pages.dev/tos",
-  "policy_uri": "https://rulolo.pages.dev/policy",
+  "client_uri": "https://rolulo.kazani.dev",
+  "logo_uri": "https://rolulo.kazani.dev/favicon.png",
+  "tos_uri": "https://rolulo.kazani.dev/tos",
+  "policy_uri": "https://rolulo.kazani.dev/policy",
   "redirect_uris": [
-    "https://rulolo.pages.dev/callback"
+    "https://rolulo.kazani.dev/callback"
   ],
   "scope": "atproto",
   "grant_types": [
